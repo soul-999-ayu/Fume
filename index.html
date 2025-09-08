@@ -52,7 +52,6 @@
         <nav class="container mx-auto px-4 lg:px-8 py-3">
             <div class="flex items-center justify-between">
                 <div class="flex items-center space-x-8">
-                    <!-- Restored your image logo path -->
                     <a href="#" class="text-3xl font-bold text-fume-white tracking-wider"><img src="res/img/logo.png" alt="Fume Logo" width="100px" style="margin-top: -10px;"></a>
                     <div class="hidden lg:flex items-center space-x-6 uppercase text-sm">
                         <a href="#" class="nav-link text-fume-gray font-semibold">Store</a>
@@ -64,16 +63,13 @@
                 <div class="flex items-center space-x-4">
                     <div class="hidden md:flex items-center bg-fume-install-wrapper rounded-md p-2">
                         <a href="#" class="text-fume-highlight text-sm font-semibold flex items-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM6.293 6.707a1 1 0 010-1.414l3-3a1 1 0 011.414 0l3 3a1 1 0 01-1.414 1.414L11 5.414V13a1 1 0 11-2 0V5.414L7.707 6.707a1 1 0 01-1.414 0z" clip-rule="evenodd" />
-                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM6.293 6.707a1 1 0 010-1.414l3-3a1 1 0 011.414 0l3 3a1 1 0 01-1.414 1.414L11 5.414V13a1 1 0 11-2 0V5.414L7.707 6.707a1 1 0 01-1.414 0z" clip-rule="evenodd" /></svg>
                             Install Fume
                         </a>
                     </div>
                     <a href="#" class="text-fume-gray text-sm">Login</a>
                     <span class="text-fume-gray">|</span>
                     <a href="#" class="text-fume-gray text-sm">Language</a>
-                     <!-- Mobile Menu Button -->
                     <div class="lg:hidden">
                         <button id="menu-btn" class="text-white focus:outline-none">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
@@ -81,7 +77,6 @@
                     </div>
                 </div>
             </div>
-            <!-- Mobile Menu -->
             <div id="mobile-menu" class="hidden lg:hidden mt-4 space-y-2 uppercase text-sm">
                 <a href="#" class="block nav-link text-fume-gray font-semibold">Store</a>
                 <a href="#" class="block nav-link text-fume-gray font-semibold">Community</a>
@@ -97,50 +92,60 @@
         <!-- Hero Section -->
         <section class="mb-12">
             <h2 class="text-2xl text-fume-highlight font-semibold mb-4 tracking-wide">FEATURED & RECOMMENDED</h2>
-            <div class="relative rounded-lg overflow-hidden shadow-2xl">
-                <!-- Restored your game image path -->
-                <img src="res/games/img/poppy.jpg" alt="Featured Game" class="w-full h-auto object-cover">
-                <div class="absolute bottom-0 left-0 p-8 bg-gradient-to-t from-black/80 to-transparent w-full">
-                    <h3 class="text-4xl font-bold text-white mb-2">Poppy Playtime</h3>
-                    <p class="text-sm text-fume-gray/80 mb-2">by MOB Games</p>
-                    <p class="text-fume-gray max-w-2xl mb-4">You must stay alive in this horror/puzzle adventure. Try to survive the vengeful toys waiting for you in the abandoned toy factory.</p>
-                    <div class="flex items-center space-x-4">
-                        <button class="bg-fume-accent text-white font-bold py-2 px-6 rounded-lg transition duration-200">ADD TO LIBRARY</button>
-                        <button class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-6 rounded-lg transition duration-200">PLAY NOW</button>
+            <div class="rounded-lg overflow-hidden shadow-2xl">
+                <!-- Mobile Layout: Block, visible only on small screens -->
+                <div class="md:hidden">
+                    <img src="res/games/img/poppy.jpg" alt="Featured Game" class="w-full h-auto object-cover">
+                    <div class="p-4 bg-fume-header-footer">
+                        <h3 class="text-2xl font-bold text-white mb-1">Poppy Playtime</h3>
+                        <p class="text-sm text-fume-gray/80 mb-3">by MOB Games</p>
+                        <div class="flex flex-col space-y-2">
+                            <button class="w-full bg-fume-accent text-white font-bold py-2 px-4 rounded-lg transition duration-200">ADD TO LIBRARY</button>
+                            <button class="w-full bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-lg transition duration-200">PLAY NOW</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Desktop Layout: Relative with Absolute overlay, hidden on small screens -->
+                <div class="hidden md:block relative">
+                    <img src="res/games/img/poppy.jpg" alt="Featured Game" class="w-full h-auto object-cover">
+                    <div class="absolute bottom-0 left-0 p-8 bg-gradient-to-t from-black/80 to-transparent w-full">
+                        <h3 class="text-4xl font-bold text-white mb-2">Poppy Playtime</h3>
+                        <p class="text-sm text-fume-gray/80 mb-2">by MOB Games</p>
+                        <p class="text-fume-gray max-w-2xl mb-4">You must stay alive in this horror/puzzle adventure. Try to survive the vengeful toys waiting for you in the abandoned toy factory.</p>
+                        <div class="flex items-center space-x-4">
+                            <button class="bg-fume-accent text-white font-bold py-2 px-6 rounded-lg transition duration-200">ADD TO LIBRARY</button>
+                            <button class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-6 rounded-lg transition duration-200">PLAY NOW</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Special Offers -->
+        <!-- New Releases Section -->
         <section class="mb-12">
             <h2 class="text-2xl text-fume-highlight font-semibold mb-4 tracking-wide">NEW RELEASES</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                
-                <!-- Offer Card 1 (Free Game) -->
                 <div class="game-card rounded-lg overflow-hidden">
-                    <!-- Restored your game image path -->
                     <img src="res/games/img/sky.jpg" class="w-full h-48 object-cover" alt="Sky: Children of the Light">
                     <div class="p-4 game-card-content">
                         <div>
                            <h3 class="font-bold text-white truncate text-lg">Sky: Children of the Light</h3>
                            <p class="text-xs text-gray-400 mb-2">by thatgamecompany</p>
-                           <p>Explore a beautifully-animated kingdom across seven realms and create enriching memories with other players in this delightful puzzle-adventure game. </p>
+                           <p class="text-sm text-gray-300">Explore a beautifully-animated kingdom across seven realms and create enriching memories with other players.</p>
                         </div>
                         <div class="flex justify-end items-center mt-4">
                             <span class="bg-blue-500 text-white text-md font-bold px-4 py-1 rounded">Free to Play</span>
                         </div>
                     </div>
                 </div>
-
-                <!-- Offer Card 2 (Paid Game) -->
                 <div class="game-card rounded-lg overflow-hidden">
-                    <img src="res/games/img/football.jpg" class="w-full h-48 object-cover" alt="Kingdoms of Ether">
+                    <img src="res/games/img/football.jpg" class="w-full h-48 object-cover" alt="Football Life Simulator">
                      <div class="p-4 game-card-content">
                         <div>
                            <h3 class="font-bold text-white truncate text-lg">Football Life Simulator</h3>
                            <p class="text-xs text-gray-400 mb-2">by Ludu Arts</p>
-                           <p>Train, play matches, manage your social life, climb the career ladder, and spend your earned money. Decorate your life with luxury while managing your relationships and finances. </p>
+                           <p class="text-sm text-gray-300">Train, play matches, manage your social life, climb the career ladder, and spend your earned money.</p>
                         </div>
                         <div class="flex justify-between items-center mt-4">
                             <span class="bg-red-600 text-white text-lg font-bold px-3 py-1 rounded">-14%</span>
@@ -151,30 +156,26 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- Offer Card 3 (Paid Game) -->
                 <div class="game-card rounded-lg overflow-hidden">
-                    <img src="res/games/img/cube.jpg" class="w-full h-48 object-cover" alt="Speed Demons 3">
+                    <img src="res/games/img/cube.jpg" class="w-full h-48 object-cover" alt="Cube Escape: Paradox">
                     <div class="p-4 game-card-content">
                         <div>
-                            <h3 class="font-bold text-white truncate text-lg">Play Cube Escape: Paradox </h3>
+                            <h3 class="font-bold text-white truncate text-lg">Cube Escape: Paradox</h3>
                             <p class="text-xs text-gray-400 mb-2">by Rusty Lake</p>
-                            <p>In Cube Escape: Paradox, Detective Dale Vandermeer must escape from two universes he's trapped in. The game will be released with a companion film, Paradox: A Rusty Lake Film.</p>
+                            <p class="text-sm text-gray-300">Detective Dale Vandermeer must escape from two universes he's trapped in. A companion film is also available.</p>
                         </div>
                         <div class="flex justify-end items-center mt-4">
                             <span class="bg-blue-500 text-white text-md font-bold px-4 py-1 rounded">Free to Play</span>
                         </div>
                     </div>
                 </div>
-
-                <!-- Offer Card 4 (Paid Game) -->
                 <div class="game-card rounded-lg overflow-hidden">
-                    <img src="res/games/img/vtube.jpg" class="w-full h-48 object-cover" alt="Pixel Plunder">
+                    <img src="res/games/img/vtube.jpg" class="w-full h-48 object-cover" alt="VTube Studio">
                      <div class="p-4 game-card-content">
                         <div>
                             <h3 class="font-bold text-white truncate text-lg">VTube Studio</h3>
                             <p class="text-xs text-gray-400 mb-2">by DenchiSoft</p>
-                            <p>VTube Studio is all you'll ever need to become a Live2D VTuber, with innovative features such as pinning props to your model and many more still to come. </p>
+                            <p class="text-sm text-gray-300">VTube Studio is all you'll ever need to become a Live2D VTuber, with innovative features and many more still to come.</p>
                         </div>
                         <div class="flex justify-end items-center mt-4">
                             <span class="bg-blue-500 text-white text-md font-bold px-4 py-1 rounded">Free to Play</span>
@@ -188,22 +189,10 @@
         <section>
             <h2 class="text-2xl text-fume-highlight font-semibold mb-4 tracking-wide">BROWSE BY CATEGORY</h2>
             <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <a href="#" class="relative rounded-lg overflow-hidden h-32 flex items-center justify-center text-white text-2xl font-bold p-4 text-center game-card">
-                    <img src="https://placehold.co/400x200/5c98b9/ffffff?text=Action" class="absolute inset-0 w-full h-full object-cover opacity-50 transition-opacity duration-300 hover:opacity-70" alt="Action">
-                    <span class="relative z-10">Action</span>
-                </a>
-                <a href="#" class="relative rounded-lg overflow-hidden h-32 flex items-center justify-center text-white text-2xl font-bold p-4 text-center game-card">
-                    <img src="https://placehold.co/400x200/b0885a/ffffff?text=Adventure" class="absolute inset-0 w-full h-full object-cover opacity-50 transition-opacity duration-300 hover:opacity-70" alt="Adventure">
-                    <span class="relative z-10">Adventure</span>
-                </a>
-                <a href="#" class="relative rounded-lg overflow-hidden h-32 flex items-center justify-center text-white text-2xl font-bold p-4 text-center game-card">
-                    <img src="https://placehold.co/400x200/7a5ab0/ffffff?text=RPG" class="absolute inset-0 w-full h-full object-cover opacity-50 transition-opacity duration-300 hover:opacity-70" alt="RPG">
-                    <span class="relative z-10">RPG</span>
-                </a>
-                 <a href="#" class="relative rounded-lg overflow-hidden h-32 flex items-center justify-center text-white text-2xl font-bold p-4 text-center game-card">
-                    <img src="https://placehold.co/400x200/5ab05f/ffffff?text=Strategy" class="absolute inset-0 w-full h-full object-cover opacity-50 transition-opacity duration-300 hover:opacity-70" alt="Strategy">
-                    <span class="relative z-10">Strategy</span>
-                </a>
+                <a href="#" class="relative rounded-lg overflow-hidden h-32 flex items-center justify-center text-white text-2xl font-bold p-4 text-center game-card"><img src="https://placehold.co/400x200/5c98b9/ffffff?text=Action" class="absolute inset-0 w-full h-full object-cover opacity-50 transition-opacity duration-300 hover:opacity-70" alt="Action"><span class="relative z-10">Action</span></a>
+                <a href="#" class="relative rounded-lg overflow-hidden h-32 flex items-center justify-center text-white text-2xl font-bold p-4 text-center game-card"><img src="https://placehold.co/400x200/b0885a/ffffff?text=Adventure" class="absolute inset-0 w-full h-full object-cover opacity-50 transition-opacity duration-300 hover:opacity-70" alt="Adventure"><span class="relative z-10">Adventure</span></a>
+                <a href="#" class="relative rounded-lg overflow-hidden h-32 flex items-center justify-center text-white text-2xl font-bold p-4 text-center game-card"><img src="https://placehold.co/400x200/7a5ab0/ffffff?text=RPG" class="absolute inset-0 w-full h-full object-cover opacity-50 transition-opacity duration-300 hover:opacity-70" alt="RPG"><span class="relative z-10">RPG</span></a>
+                 <a href="#" class="relative rounded-lg overflow-hidden h-32 flex items-center justify-center text-white text-2xl font-bold p-4 text-center game-card"><img src="https://placehold.co/400x200/5ab05f/ffffff?text=Strategy" class="absolute inset-0 w-full h-full object-cover opacity-50 transition-opacity duration-300 hover:opacity-70" alt="Strategy"><span class="relative z-10">Strategy</span></a>
             </div>
         </section>
 
@@ -226,10 +215,8 @@
     </footer>
 
     <script>
-        // JavaScript for mobile menu toggle
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
-
         menuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
         });
