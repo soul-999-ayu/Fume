@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game on Fume</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-image: linear-gradient(135deg, #2a2135 0%, #4a3f63 100%);
+            background-attachment: fixed;
+            color: #e0dce8;
+        }
+        .bg-fume-header-footer { background-color: #1e192b; }
+        .bg-fume-install-wrapper { background-color: #3a314d; }
+        .text-fume-highlight { color: #B6AEC3; } /* Logo color */
+        .text-fume-white { color: #ffffff; }
+        .text-fume-gray { color: #c7d5e0; }
+        .bg-fume-accent { background-color: #9333ea; }
+        .bg-fume-accent:hover { background-color: #7e22ce; }
+        .nav-link:hover {
+            color: #B6AEC3;
+        }
+        .thumbnail {
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: border-color 0.2s ease;
+        }
+        .thumbnail:hover, .thumbnail.active {
+            border-color: #B6AEC3;
+        }
+        .media-container iframe, .media-container img {
+            width: 100%;
+            height: 100%;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="bg-fume-header-footer sticky top-0 z-50 shadow-lg">
+        <nav class="container mx-auto px-4 lg:px-8 py-3">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-8">
+                    <a href="fume.html" class="text-3xl font-bold text-fume-white tracking-wider"><img src="res/img/logo.png" alt="Fume Logo" width="100px" style="margin-top: -10px;"></a>
+                    <div class="hidden lg:flex items-center space-x-6 uppercase text-sm">
+                        <a href="fume.html" class="nav-link text-fume-gray font-semibold">Store</a>
+                        <a href="#" class="nav-link text-fume-gray font-semibold">Community</a>
+                        <a href="#" class="nav-link text-fume-gray font-semibold">About</a>
+                        <a href="#" class="nav-link text-fume-gray font-semibold">Support</a>
+                    </div>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="hidden md:flex items-center bg-fume-install-wrapper rounded-md p-2">
+                        <a href="#" class="text-fume-highlight text-sm font-semibold flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM6.293 6.707a1 1 0 010-1.414l3-3a1 1 0 011.414 0l3 3a1 1 0 01-1.414 1.414L11 5.414V13a1 1 0 11-2 0V5.414L7.707 6.707a1 1 0 01-1.414 0z" clip-rule="evenodd" /></svg>
+                            Install Fume
+                        </a>
+                    </div>
+                    <a href="#" class="text-fume-gray text-sm">Login</a>
+                    <span class="text-fume-gray">|</span>
+                    <a href="#" class="text-fume-gray text-sm">Language</a>
+                    <div class="lg:hidden">
+                        <button id="menu-btn" class="text-white focus:outline-none">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div id="mobile-menu" class="hidden lg:hidden mt-4 space-y-2 uppercase text-sm">
+                <a href="fume.html" class="block nav-link text-fume-gray font-semibold">Store</a>
+                <a href="#" class="block nav-link text-fume-gray font-semibold">Community</a>
+                <a href="#" class="block nav-link text-fume-gray font-semibold">About</a>
+                <a href="#" class="block nav-link text-fume-gray font-semibold">Support</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 lg:px-8 py-8">
+
+        <div id="game-content">
+            <!-- Breadcrumbs -->
+            <div class="text-sm text-fume-highlight mb-2">
+                <a href="fume.html" class="hover:underline">All Games</a> &gt; <span id="breadcrumb-game-title">Game Title</span>
+            </div>
+            <h1 id="game-title" class="text-4xl lg:text-5xl font-bold text-white mb-8">Game Title Loading...</h1>
+
+            <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+                <!-- Left Column: Media -->
+                <div class="lg:col-span-3">
+                    <div id="media-container" class="media-container mb-4 rounded-lg overflow-hidden bg-black">
+                        <!-- Main media (trailer or screenshot) will be loaded here -->
+                    </div>
+                    <div id="thumbnail-container" class="grid grid-cols-3 sm:grid-cols-6 gap-2">
+                        <!-- Thumbnails will be loaded here -->
+                    </div>
+                </div>
+
+                <!-- Right Column: Info & Purchase -->
+                <div class="lg:col-span-1">
+                    <img id="game-header-image" src="https://placehold.co/600x900/1e192b/e0dce8?text=Loading" alt="Game Header" class="rounded-lg mb-4 w-full">
+                    <p id="game-short-description" class="text-sm text-gray-300 mb-4">Loading description...</p>
+                    <div class="space-y-2 text-sm mb-6">
+                        <p><strong class="text-gray-400 w-24 inline-block">DEVELOPER:</strong> <span id="game-developer">...</span></p>
+                        <p><strong class="text-gray-400 w-24 inline-block">PUBLISHER:</strong> <span id="game-publisher">...</span></p>
+                        <p><strong class="text-gray-400 w-24 inline-block">RELEASE:</strong> <span id="game-release-date">...</span></p>
+                    </div>
+                    <div id="purchase-box" class="bg-fume-header-footer/50 p-4 rounded-lg">
+                       <!-- Purchase info loaded here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- About Section -->
+            <div class="mt-12">
+                <h2 class="text-2xl text-fume-highlight font-semibold mb-4 border-b border-fume-highlight/20 pb-2">ABOUT THIS GAME</h2>
+                <p id="game-long-description" class="text-gray-300 leading-relaxed">Loading full description...</p>
+            </div>
+            
+             <!-- More Like This Section -->
+            <div class="mt-12">
+                 <h2 class="text-2xl text-fume-highlight font-semibold mb-4 border-b border-fume-highlight/20 pb-2">MORE LIKE THIS</h2>
+                 <div id="more-games-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- More game cards will be loaded here -->
+                 </div>
+            </div>
+
+        </div>
+
+    </main>
+    
+    <!-- Footer -->
+    <footer class="bg-fume-header-footer mt-12 py-8">
+        <div class="container mx-auto px-4 lg:px-8 text-center text-fume-gray text-xs">
+            <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-6 mb-4">
+                <a href="#" class="hover:text-fume-highlight">About Fume</a>
+                <a href="#" class="hover:text-fume-highlight">Jobs</a>
+                <a href="#" class="hover:text-fume-highlight">Fumeworks</a>
+                <a href="#" class="hover:text-fume-highlight">Support</a>
+                <a href="#" class="hover:text-fume-highlight">Privacy Policy</a>
+                <a href="#" class="hover:text-fume-highlight">Legal</a>
+            </div>
+            <p>&copy; 2025 FumeDigital Corporation. All rights reserved. All trademarks are property of their respective owners in the US and other countries.</p>
+            <p class="mt-2">This is an intial website demo for demonstration purposes only.</p>
+        </div>
+    </footer>
+
+    <script>
+        // --- GAME DATA ---
+        // In a real app, this would come from a server.
+        const allGameData = {
+            'lightkeeper': {
+                title: 'The Lightkeeper',
+                developer: 'Darkphobia Games',
+                publisher: 'Darkphobia Games',
+                releaseDate: 'Oct 25, 2024',
+                headerImage: 'https://cdn.akamai.steamstatic.com/steam/apps/2524450/header.jpg',
+                shortDescription: 'Alone on a remote island stands a lighthouse. You are the new keeper, tasked with keeping its light alive. But strange and horrific events from the past still echo in the air.',
+                longDescription: 'You are the new keeper of the lighthouse on a remote island, a place with a dark history. As you tend to your duties, the line between reality and delusion begins to blur. Something is waiting in the dark, watching the last keeper. Can you survive the nights and uncover the island\'s secrets? The Lightkeeper is a first-person horror game that will test your sanity.',
+                trailerUrl: 'https://www.youtube.com/embed/gxi9i21v_O4',
+                screenshots: [
+                    'https://cdn.akamai.steamstatic.com/steam/apps/2524450/ss_2b1e7c4f4a3e20e17926b4887b8f95c474d283c7.1920x1080.jpg',
+                    'https://cdn.akamai.steamstatic.com/steam/apps/2524450/ss_868b3d6835154cdb83e4453a79f53835e05a8f6d.1920x1080.jpg',
+                    'https://cdn.akamai.steamstatic.com/steam/apps/2524450/ss_4905187e5b61f9df8c2f1f6c40e53a9926d8412e.1920x1080.jpg'
+                ],
+                price: 'Free to Play'
+            },
+            'sky': {
+                title: 'Sky: Children of the Light',
+                developer: 'thatgamecompany',
+                publisher: 'thatgamecompany',
+                releaseDate: 'Apr 10, 2024',
+                headerImage: 'https://cdn.akamai.steamstatic.com/steam/apps/2325290/header.jpg',
+                shortDescription: 'Sky is a heartwarming social adventure to be explored with your loved ones.',
+                longDescription: 'From the creators behind Journey and Flower, comes a peaceful social adventure that is set to warm your hearts - Sky: Children of the Light. Explore a beautifully-animated kingdom across seven realms and create enriching memories with other players in this delightful puzzle-adventure game.',
+                trailerUrl: 'https://www.youtube.com/embed/MO2m2n-1W4g',
+                screenshots: [
+                    'https://cdn.akamai.steamstatic.com/steam/apps/2325290/ss_752a704b2b23a7e02b0f39000a94d89a74288b28.1920x1080.jpg',
+                    'https://cdn.akamai.steamstatic.com/steam/apps/2325290/ss_c5b89a818c72de138407d7222137699709a32194.1920x1080.jpg',
+                    'https://cdn.akamai.steamstatic.com/steam/apps/2325290/ss_a5a1f2913e9a1de81804d1668e1aa65f2424b9b9.1920x1080.jpg',
+                ],
+                price: 'Free to Play'
+            },
+            'mouse': {
+                title: 'MOUSE: P.I. For Hire',
+                developer: 'Fumi Games',
+                publisher: 'PlaySide',
+                releaseDate: 'Coming Soon',
+                headerImage: 'https://cdn.akamai.steamstatic.com/steam/apps/1412010/header.jpg',
+                shortDescription: 'A gritty, jazz-fueled shooter. MOUSE blends classic 1930s rubber hose animation with the adrenaline of an explosive first-person shooter.',
+                longDescription: 'Join private investigator Jack Pepper on a guns blazing, jazz-fueled adventure in MOUSE: P.I. For Hire. MOUSE combines the charm of hand-drawn rubber hose animation inspired by the classic cartoons of the 1930’s with the adrenaline and action of an explosive first person shooter.',
+                trailerUrl: 'https://www.youtube.com/embed/G6y8n5n1lI8',
+                screenshots: [
+                    'https://cdn.akamai.steamstatic.com/steam/apps/1412010/ss_f8f967a5b3a3ab80e309228813f80c611417a86c.1920x1080.jpg',
+                    'https://cdn.akamai.steamstatic.com/steam/apps/1412010/ss_96ca837651a134a413dccf55c5dfb66d49dd77e0.1920x1080.jpg',
+                    'https://cdn.akamai.steamstatic.com/steam/apps/1412010/ss_e6f6631b145a2fa4d720c2e39dc852c00a4061a9.1920x1080.jpg'
+                ],
+                price: 'Wishlist'
+            },
+            'football': {
+                title: 'Football Life Simulator',
+                developer: 'Ludu Arts',
+                publisher: 'Ludu Arts',
+                releaseDate: 'Jun 19, 2024',
+                headerImage: 'https://cdn.akamai.steamstatic.com/steam/apps/2633270/header.jpg',
+                shortDescription: 'Train, play matches, manage your social life, climb the career ladder, and spend your earned money.',
+                longDescription: 'In Football Life Simulator, you can live the life of a football player from A to Z. Train, play matches, manage your social life, climb the career ladder, and spend your earned money. Decorate your life with luxury while managing your relationships and finances.',
+                trailerUrl: 'https://www.youtube.com/embed/8-PlWeKo84A',
+                screenshots: [
+                    'https://cdn.akamai.steamstatic.com/steam/apps/2633270/ss_37a1e05d985a1532c256553835e2365d6c8b939f.1920x1080.jpg',
+                    'https://cdn.akamai.steamstatic.com/steam/apps/2633270/ss_54a37f2619e078c5c7d0d046c823057e93b16987.1920x1080.jpg',
+                    'https://cdn.akamai.steamstatic.com/steam/apps/2633270/ss_4996459392d415bdfc086d34b150c26da4293f9c.1920x1080.jpg',
+                ],
+                price: '₹800'
+            },
+             'seat-taken': {
+                title: 'Is This Seat Taken?',
+                developer: 'Overwhelmingly',
+                publisher: 'Overwhelmingly',
+                releaseDate: 'Sep 5, 2024',
+                headerImage: 'https://cdn.akamai.steamstatic.com/steam/apps/2936770/header.jpg',
+                shortDescription: 'A logic puzzle game where you play matchmaker for groups of hilariously particular people.',
+                longDescription: 'Is This Seat Taken? is a logic puzzle game where you play matchmaker for groups of hilariously particular people. Each character has pet peeves that make seating them a delightful challenge. Can you find a seating arrangement that satisfies everyone?',
+                trailerUrl: 'https://www.youtube.com/embed/video-id-for-seat-taken', // Placeholder
+                screenshots: [
+                    'https://cdn.akamai.steamstatic.com/steam/apps/2936770/ss_b8a9643171328905cd1ef06f0e34b9d0e7f77242.1920x1080.jpg',
+                    'https://cdn.akamai.steamstatic.com/steam/apps/2936770/ss_c53974c43105ffddc42bcfb19e28f73117498369.1920x1080.jpg',
+                    'https://cdn.akamai.steamstatic.com/steam/apps/2936770/ss_4d89a748ed077d704c35e9851722650059c99d2d.1920x1080.jpg'
+                ],
+                price: '₹429'
+            },
+        };
+
+        // --- PAGE LOGIC ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const gameId = params.get('id');
+            const game = allGameData[gameId];
+            
+            if (game) {
+                populatePage(game, gameId);
+            } else {
+                document.getElementById('game-content').innerHTML = `
+                    <h1 class="text-4xl font-bold text-white text-center">Game Not Found</h1>
+                    <p class="text-center mt-4">The game you're looking for doesn't exist. <a href="fume.html" class="text-fume-highlight hover:underline">Return to Store</a></p>
+                `;
+            }
+        });
+
+        function populatePage(game, currentGameId) {
+            // Set document title
+            document.title = `${game.title} on Fume`;
+
+            // Populate main info
+            document.getElementById('breadcrumb-game-title').textContent = game.title;
+            document.getElementById('game-title').textContent = game.title;
+            document.getElementById('game-header-image').src = game.headerImage;
+            document.getElementById('game-header-image').alt = game.title;
+            document.getElementById('game-short-description').textContent = game.shortDescription;
+            document.getElementById('game-developer').textContent = game.developer;
+            document.getElementById('game-publisher').textContent = game.publisher;
+            document.getElementById('game-release-date').textContent = game.releaseDate;
+            document.getElementById('game-long-description').textContent = game.longDescription;
+            
+            // Populate media
+            const mediaContainer = document.getElementById('media-container');
+            const thumbnailContainer = document.getElementById('thumbnail-container');
+            
+            // Set initial media to trailer
+            mediaContainer.innerHTML = `<iframe src="${game.trailerUrl}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+
+            // Create trailer thumbnail
+            const trailerThumb = createThumbnail(game.headerImage, 'trailer', game.trailerUrl);
+            thumbnailContainer.appendChild(trailerThumb);
+
+            // Create screenshot thumbnails
+            game.screenshots.forEach(ssUrl => {
+                const thumb = createThumbnail(ssUrl, 'image', ssUrl);
+                thumbnailContainer.appendChild(thumb);
+            });
+            
+            // Populate purchase box
+            const purchaseBox = document.getElementById('purchase-box');
+            if (game.price === 'Free to Play') {
+                 purchaseBox.innerHTML = `
+                    <h3 class="text-lg font-bold text-white mb-4">Play ${game.title}</h3>
+                    <button class="w-full bg-fume-accent text-white font-bold py-3 rounded-lg transition duration-200">PLAY GAME</button>
+                 `;
+            } else if (game.price === 'Wishlist') {
+                 purchaseBox.innerHTML = `
+                    <h3 class="text-lg font-bold text-white mb-4">Coming Soon</h3>
+                    <button class="w-full bg-blue-500 text-white font-bold py-3 rounded-lg transition duration-200">ADD TO WISHLIST</button>
+                 `;
+            } else {
+                 purchaseBox.innerHTML = `
+                    <h3 class="text-lg font-bold text-white mb-2">Buy ${game.title}</h3>
+                    <div class="flex items-center justify-between bg-black/20 p-2 rounded-md">
+                        <span class="text-2xl font-bold text-green-400">${game.price}</span>
+                        <button class="bg-fume-accent text-white font-bold py-2 px-6 rounded-md transition duration-200">Add to Cart</button>
+                    </div>
+                 `;
+            }
+
+            // Populate More Like This section
+            const moreGamesContainer = document.getElementById('more-games-container');
+            Object.keys(allGameData).forEach(key => {
+                if (key !== currentGameId) { // Don't show the current game in the list
+                    const otherGame = allGameData[key];
+                    const card = document.createElement('a');
+                    card.href = `game.html?id=${key}`;
+                    card.className = 'game-card rounded-lg overflow-hidden block'; // Added block
+                    card.innerHTML = `
+                        <img src="${otherGame.headerImage}" class="w-full h-40 object-cover" alt="${otherGame.title}">
+                        <div class="p-3">
+                            <h4 class="font-bold text-white truncate">${otherGame.title}</h4>
+                            <p class="text-xs text-gray-400">${otherGame.developer}</p>
+                        </div>
+                    `;
+                    moreGamesContainer.appendChild(card);
+                }
+            });
+        }
+        
+        function createThumbnail(url, type, mediaUrl) {
+            const thumb = document.createElement('img');
+            thumb.src = url;
+            thumb.className = 'thumbnail rounded';
+            thumb.onclick = () => {
+                const mediaContainer = document.getElementById('media-container');
+                document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
+                thumb.classList.add('active');
+                
+                if (type === 'trailer') {
+                    mediaContainer.innerHTML = `<iframe src="${mediaUrl}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+                } else {
+                    mediaContainer.innerHTML = `<img src="${mediaUrl}" alt="Screenshot">`;
+                }
+            };
+            return thumb;
+        }
+
+    </script>
+</body>
+</html>
