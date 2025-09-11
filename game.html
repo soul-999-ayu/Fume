@@ -47,9 +47,9 @@
         <nav class="container mx-auto px-4 lg:px-8 py-3">
             <div class="flex items-center justify-between">
                 <div class="flex items-center space-x-8">
-                    <a href="fume.html" class="text-3xl font-bold text-fume-white tracking-wider"><img src="res/img/logo.png" alt="Fume Logo" width="100px" style="margin-top: -10px;"></a>
+                    <a href="index.html" class="text-3xl font-bold text-fume-white tracking-wider"><img src="res/img/logo.png" alt="Fume Logo" width="100px" style="margin-top: -10px;"></a>
                     <div class="hidden lg:flex items-center space-x-6 uppercase text-sm">
-                        <a href="fume.html" class="nav-link text-fume-gray font-semibold">Store</a>
+                        <a href="index.html" class="nav-link text-fume-gray font-semibold">Store</a>
                         <a href="#" class="nav-link text-fume-gray font-semibold">Community</a>
                         <a href="#" class="nav-link text-fume-gray font-semibold">About</a>
                         <a href="#" class="nav-link text-fume-gray font-semibold">Support</a>
@@ -73,7 +73,7 @@
                 </div>
             </div>
             <div id="mobile-menu" class="hidden lg:hidden mt-4 space-y-2 uppercase text-sm">
-                <a href="fume.html" class="block nav-link text-fume-gray font-semibold">Store</a>
+                <a href="index.html" class="block nav-link text-fume-gray font-semibold">Store</a>
                 <a href="#" class="block nav-link text-fume-gray font-semibold">Community</a>
                 <a href="#" class="block nav-link text-fume-gray font-semibold">About</a>
                 <a href="#" class="block nav-link text-fume-gray font-semibold">Support</a>
@@ -87,7 +87,7 @@
         <div id="game-content">
             <!-- Breadcrumbs -->
             <div class="text-sm text-fume-highlight mb-2">
-                <a href="fume.html" class="hover:underline">All Games</a> &gt; <span id="breadcrumb-game-title">Game Title</span>
+                <a href="index.html" class="hover:underline">All Games</a> &gt; <span id="breadcrumb-game-title">Game Title</span>
             </div>
             <h1 id="game-title" class="text-4xl lg:text-5xl font-bold text-white mb-8">Game Title Loading...</h1>
 
@@ -155,21 +155,21 @@
         // --- GAME DATA ---
         // In a real app, this would come from a server.
         const allGameData = {
-            'lightkeeper': {
-                title: 'The Lightkeeper',
-                developer: 'Darkphobia Games',
-                publisher: 'Darkphobia Games',
-                releaseDate: 'Oct 25, 2024',
-                headerImage: 'https://cdn.akamai.steamstatic.com/steam/apps/2524450/header.jpg',
-                shortDescription: 'Alone on a remote island stands a lighthouse. You are the new keeper, tasked with keeping its light alive. But strange and horrific events from the past still echo in the air.',
-                longDescription: 'You are the new keeper of the lighthouse on a remote island, a place with a dark history. As you tend to your duties, the line between reality and delusion begins to blur. Something is waiting in the dark, watching the last keeper. Can you survive the nights and uncover the island\'s secrets? The Lightkeeper is a first-person horror game that will test your sanity.',
-                trailerUrl: 'https://www.youtube.com/embed/gxi9i21v_O4',
+            'fishing': {
+                title: 'GONE Fishing',
+                developer: 'GONE Studios',
+                publisher: 'GONE Studios',
+                releaseDate: 'June 16, 2025',
+                headerImage: 'res/games/img/fishing.jpg',
+                shortDescription: 'GONE Fishing is a co-op multiplayer survival horror game where you and your friends must work together to stay alive, by fishing. The only way to survive is to keep feeding the lake’s insatiable hunger before it feeds on you.',
+                longDescription: 'GONE Fishing is a co-op multiplayer survival horror game where you and your friends must work together to stay alive, by fishing. The only way to survive is to keep feeding the lake’s insatiable hunger before it feeds on you.',
+                trailerUrl: 'https://youtu.be/N0rfBh4lXqo?si=LkyPFhQMpl3UlmPG',
                 screenshots: [
                     'https://cdn.akamai.steamstatic.com/steam/apps/2524450/ss_2b1e7c4f4a3e20e17926b4887b8f95c474d283c7.1920x1080.jpg',
                     'https://cdn.akamai.steamstatic.com/steam/apps/2524450/ss_868b3d6835154cdb83e4453a79f53835e05a8f6d.1920x1080.jpg',
                     'https://cdn.akamai.steamstatic.com/steam/apps/2524450/ss_4905187e5b61f9df8c2f1f6c40e53a9926d8412e.1920x1080.jpg'
                 ],
-                price: 'Free to Play'
+                price: '427'
             },
             'sky': {
                 title: 'Sky: Children of the Light',
@@ -248,7 +248,7 @@
             } else {
                 document.getElementById('game-content').innerHTML = `
                     <h1 class="text-4xl font-bold text-white text-center">Game Not Found</h1>
-                    <p class="text-center mt-4">The game you're looking for doesn't exist. <a href="fume.html" class="text-fume-highlight hover:underline">Return to Store</a></p>
+                    <p class="text-center mt-4">The game you're looking for doesn't exist. <a href="index.html" class="text-fume-highlight hover:underline">Return to Store</a></p>
                 `;
             }
         });
